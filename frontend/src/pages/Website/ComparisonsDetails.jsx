@@ -745,33 +745,48 @@ export default function ComparisonsDetails() {
           </Box>
         </Container>
       </Box>
-
       {/*  */}
       <Box
         component="section"
         sx={{
           width: "100%",
           position: "relative",
-          overflow: "hidden",
+          overflowX: "hidden",
           display: "flex",
           justifyContent: "center",
+          boxSizing: "border-box",
 
-          pt: { xs: 3, sm: 5, md: 7 },
-          px: { xs: 2, sm: 3 },
-          pb: { xs: 2, sm: 3, md: 3 },
+          pt: { xs: 4, sm: 6, md: 8 },
+          px: { xs: 1.5, sm: 2, md: 3 },
+          pb: { xs: 4, sm: 5, md: 6 },
 
           backgroundColor: "#FDFDFF",
 
-          // Layered mesh gradient — indigo, orange, and a hint of pink
           backgroundImage: `
-            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
-            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
-            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
-            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
-          `,
+      radial-gradient(
+        at 15% 20%,
+        rgba(79, 70, 229, 0.16) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 85% 10%,
+        rgba(255, 104, 17, 0.14) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 50% 60%,
+        rgba(236, 72, 153, 0.08) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 90% 80%,
+        rgba(79, 70, 229, 0.10) 0px,
+        transparent 50%
+      )
+    `,
         }}
       >
-        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        {/* Noise / Texture Overlay */}
         <Box
           sx={{
             position: "absolute",
@@ -782,24 +797,23 @@ export default function ComparisonsDetails() {
             zIndex: 0,
           }}
         />
-        <Container maxWidth="xl">
+
+        <Container
+          maxWidth="xl"
+          sx={{
+            position: "relative",
+            zIndex: 1,
+            width: "100%",
+            px: { xs: 0, sm: 1, md: 2 },
+          }}
+        >
           <Card
             elevation={0}
             sx={{
-              mt: 0,
-              mb: 6,
-
-              // SAME CENTERED / REDUCED WIDTH STYLE
-              width: {
-                xs: "95%",
-                sm: "90%",
-                md: "85%",
-                lg: "80%",
-              },
+              width: "100%",
               maxWidth: "1100px",
               mx: "auto",
 
-              // OUTSIDE BOX PADDING
               p: {
                 xs: 2,
                 sm: 3,
@@ -809,19 +823,31 @@ export default function ComparisonsDetails() {
               boxSizing: "border-box",
 
               border: "1px solid #e1e5ea",
-              borderRadius: "18px",
+              borderRadius: {
+                xs: "14px",
+                sm: "16px",
+                md: "18px",
+              },
+
               boxShadow: "0 10px 30px rgba(20,40,70,0.05)",
+
+              backgroundColor: "rgba(255,255,255,0.96)",
             }}
           >
             {/* ===============================
-        SHORT ANSWER HEADER
-    ================================ */}
+          SHORT ANSWER HEADER
+      ================================ */}
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                mb: 3,
+                textAlign: "center",
+                mb: {
+                  xs: 2,
+                  sm: 2.5,
+                  md: 3,
+                },
               }}
             >
               <Typography
@@ -829,11 +855,17 @@ export default function ComparisonsDetails() {
                 sx={{
                   color: "#f45b18",
                   fontSize: {
-                    xs: 14,
+                    xs: 12,
+                    sm: 15,
                     md: 18,
                   },
                   fontWeight: 700,
-                  letterSpacing: "3px",
+                  letterSpacing: {
+                    xs: "2px",
+                    sm: "2.5px",
+                    md: "3px",
+                  },
+                  lineHeight: 1.3,
                 }}
               >
                 THE SHORT ANSWER
@@ -841,18 +873,25 @@ export default function ComparisonsDetails() {
             </Box>
 
             {/* ===============================
-        DESCRIPTION
-    ================================ */}
+          DESCRIPTION
+      ================================ */}
             <Typography
               sx={{
+                width: "100%",
                 fontSize: {
-                  xs: 16,
-                  sm: 18,
-                  md: 21,
+                  xs: 15,
+                  sm: 17,
+                  md: 20,
                 },
-                lineHeight: 1.6,
+                lineHeight: {
+                  xs: 1.6,
+                  sm: 1.65,
+                  md: 1.7,
+                },
                 color: "#111827",
                 textAlign: "left",
+                wordBreak: "normal",
+                overflowWrap: "break-word",
               }}
             >
               <Box component="strong">
@@ -868,40 +907,55 @@ export default function ComparisonsDetails() {
             </Typography>
 
             {/* ===============================
-        TWO BOXES
-    ================================ */}
+          TWO BOXES
+      ================================ */}
             <Box
               sx={{
-                mt: 3,
+                mt: {
+                  xs: 2.5,
+                  sm: 3,
+                  md: 3.5,
+                },
+
                 display: "grid",
+
                 gridTemplateColumns: {
                   xs: "1fr",
-                  md: "1fr 1fr",
+                  md: "repeat(2, minmax(0, 1fr))",
                 },
+
                 gap: {
                   xs: 2,
+                  sm: 2.5,
                   md: 3,
                 },
+
                 width: "100%",
+                minWidth: 0,
               }}
             >
               {/* ===============================
-          JFS - LEFT
-      ================================ */}
+            JFS - LEFT
+        ================================ */}
               <Card
                 elevation={0}
                 sx={{
                   width: "100%",
+                  minWidth: 0,
                   boxSizing: "border-box",
 
                   p: {
-                    xs: 2.5,
+                    xs: 2,
+                    sm: 2.5,
                     md: 3,
                   },
 
                   bgcolor: COLORS.peach,
                   border: `1px solid ${COLORS.peachBorder}`,
-                  borderRadius: "16px",
+                  borderRadius: {
+                    xs: "14px",
+                    md: "16px",
+                  },
 
                   display: "flex",
                   flexDirection: "column",
@@ -913,11 +967,15 @@ export default function ComparisonsDetails() {
                     fontWeight: 700,
                     fontSize: {
                       xs: 18,
+                      sm: 20,
                       md: 22,
                     },
-                    mb: 2,
+                    mb: {
+                      xs: 1.5,
+                      md: 2,
+                    },
                     color: COLORS.black,
-                    lineHeight: 1.2,
+                    lineHeight: 1.25,
                   }}
                 >
                   JFS wins on
@@ -927,7 +985,10 @@ export default function ComparisonsDetails() {
                   component="ul"
                   sx={{
                     m: 0,
-                    pl: 2.5,
+                    pl: {
+                      xs: 2.2,
+                      sm: 2.5,
+                    },
 
                     "& li:last-child": {
                       mb: 0,
@@ -939,13 +1000,25 @@ export default function ComparisonsDetails() {
                       component="li"
                       key={index}
                       sx={{
-                        mb: 1.5,
+                        mb: {
+                          xs: 1.25,
+                          md: 1.5,
+                        },
+
                         color: "#264b76",
+
                         fontSize: {
                           xs: 14,
+                          sm: 15,
                           md: 16,
                         },
-                        lineHeight: 1.45,
+
+                        lineHeight: {
+                          xs: 1.5,
+                          md: 1.55,
+                        },
+
+                        overflowWrap: "break-word",
 
                         "&::marker": {
                           color: COLORS.orange,
@@ -959,22 +1032,27 @@ export default function ComparisonsDetails() {
               </Card>
 
               {/* ===============================
-          WATI - RIGHT
-      ================================ */}
+            WATI - RIGHT
+        ================================ */}
               <Card
                 elevation={0}
                 sx={{
                   width: "100%",
+                  minWidth: 0,
                   boxSizing: "border-box",
 
                   p: {
-                    xs: 2.5,
+                    xs: 2,
+                    sm: 2.5,
                     md: 3,
                   },
 
                   bgcolor: "#ffffff",
                   border: `1px solid ${COLORS.border}`,
-                  borderRadius: "16px",
+                  borderRadius: {
+                    xs: "14px",
+                    md: "16px",
+                  },
 
                   display: "flex",
                   flexDirection: "column",
@@ -986,11 +1064,15 @@ export default function ComparisonsDetails() {
                     fontWeight: 700,
                     fontSize: {
                       xs: 18,
+                      sm: 20,
                       md: 22,
                     },
-                    mb: 2,
+                    mb: {
+                      xs: 1.5,
+                      md: 2,
+                    },
                     color: COLORS.black,
-                    lineHeight: 1.2,
+                    lineHeight: 1.25,
                   }}
                 >
                   Wati wins on
@@ -1000,7 +1082,10 @@ export default function ComparisonsDetails() {
                   component="ul"
                   sx={{
                     m: 0,
-                    pl: 2.5,
+                    pl: {
+                      xs: 2.2,
+                      sm: 2.5,
+                    },
 
                     "& li:last-child": {
                       mb: 0,
@@ -1012,13 +1097,25 @@ export default function ComparisonsDetails() {
                       component="li"
                       key={index}
                       sx={{
-                        mb: 1.5,
+                        mb: {
+                          xs: 1.25,
+                          md: 1.5,
+                        },
+
                         color: "#264b76",
+
                         fontSize: {
                           xs: 14,
+                          sm: 15,
                           md: 16,
                         },
-                        lineHeight: 1.45,
+
+                        lineHeight: {
+                          xs: 1.5,
+                          md: 1.55,
+                        },
+
+                        overflowWrap: "break-word",
 
                         "&::marker": {
                           color: COLORS.blue,
@@ -1034,7 +1131,6 @@ export default function ComparisonsDetails() {
           </Card>
         </Container>
       </Box>
-      {/*  */}
 
       {/*  */}
       <Box
@@ -1127,22 +1223,51 @@ export default function ComparisonsDetails() {
             component={Paper}
             elevation={0}
             sx={{
-              width: {
-                xs: "95%",
-                sm: "90%",
-                md: "85%",
-                lg: "80%",
-              },
+              width: "100%",
               maxWidth: "1100px",
               mx: "auto",
+
               border: `1px solid ${COLORS.border}`,
-              borderRadius: "18px",
+              borderRadius: { xs: "12px", sm: "18px" },
+
+              // Important for mobile horizontal scrolling
               overflowX: "auto",
+              overflowY: "hidden",
+
+              // Smooth scrolling on mobile
+              WebkitOverflowScrolling: "touch",
+
+              // Keep scrollbar inside the table area
+              "&::-webkit-scrollbar": {
+                height: { xs: "6px", sm: "8px" },
+              },
+
+              "&::-webkit-scrollbar-track": {
+                background: "#f1f1f1",
+                borderRadius: "10px",
+              },
+
+              "&::-webkit-scrollbar-thumb": {
+                background: "#b8b8b8",
+                borderRadius: "10px",
+              },
+
+              "&::-webkit-scrollbar-thumb:hover": {
+                background: "#999",
+              },
+
+              // Firefox
+              scrollbarWidth: "thin",
+              scrollbarColor: "#b8b8b8 #f1f1f1",
             }}
           >
             <Table
               sx={{
-                minWidth: 900,
+                // Desktop can use the full available width.
+                // Mobile gets enough width to allow horizontal scrolling.
+                minWidth: { xs: "850px", sm: "900px" },
+
+                tableLayout: "fixed",
               }}
             >
               {/* Table Header */}
@@ -1151,10 +1276,13 @@ export default function ComparisonsDetails() {
                   <TableCell
                     sx={{
                       width: "20%",
+                      minWidth: { xs: "170px", sm: "180px" },
                       fontWeight: 700,
-                      fontSize: 21,
+                      fontSize: { xs: "16px", sm: "19px", md: "21px" },
                       color: COLORS.navy,
-                      py: 3,
+                      py: { xs: 2, sm: 2.5, md: 3 },
+                      px: { xs: 2, sm: 2.5, md: 3 },
+                      whiteSpace: "nowrap",
                     }}
                   >
                     Capability
@@ -1163,11 +1291,14 @@ export default function ComparisonsDetails() {
                   <TableCell
                     sx={{
                       width: "40%",
+                      minWidth: { xs: "340px", sm: "360px" },
                       fontWeight: 700,
-                      fontSize: 21,
+                      fontSize: { xs: "16px", sm: "19px", md: "21px" },
                       color: COLORS.orange,
                       bgcolor: COLORS.peachLight,
-                      py: 3,
+                      py: { xs: 2, sm: 2.5, md: 3 },
+                      px: { xs: 2, sm: 2.5, md: 3 },
+                      whiteSpace: "nowrap",
                     }}
                   >
                     JFS
@@ -1176,10 +1307,13 @@ export default function ComparisonsDetails() {
                   <TableCell
                     sx={{
                       width: "40%",
+                      minWidth: { xs: "340px", sm: "360px" },
                       fontWeight: 700,
-                      fontSize: 21,
+                      fontSize: { xs: "16px", sm: "19px", md: "21px" },
                       color: COLORS.navy,
-                      py: 3,
+                      py: { xs: 2, sm: 2.5, md: 3 },
+                      px: { xs: 2, sm: 2.5, md: 3 },
+                      whiteSpace: "nowrap",
                     }}
                   >
                     Wati
@@ -1196,9 +1330,12 @@ export default function ComparisonsDetails() {
                       sx={{
                         width: "20%",
                         color: "#17385e",
-                        fontSize: 19,
-                        py: 3,
+                        fontSize: { xs: "15px", sm: "17px", md: "19px" },
+                        lineHeight: 1.45,
+                        py: { xs: 2, sm: 2.5, md: 3 },
+                        px: { xs: 2, sm: 2.5, md: 3 },
                         verticalAlign: "middle",
+                        wordBreak: "normal",
                       }}
                     >
                       {row.capability}
@@ -1210,10 +1347,13 @@ export default function ComparisonsDetails() {
                         width: "40%",
                         bgcolor: COLORS.peachLight,
                         color: "#294d77",
-                        fontSize: 18,
+                        fontSize: { xs: "14px", sm: "16px", md: "18px" },
                         lineHeight: 1.5,
-                        py: 3,
+                        py: { xs: 2, sm: 2.5, md: 3 },
+                        px: { xs: 2, sm: 2.5, md: 3 },
                         verticalAlign: "middle",
+                        whiteSpace: "normal",
+                        wordBreak: "break-word",
                       }}
                     >
                       {row.rapid}
@@ -1224,10 +1364,13 @@ export default function ComparisonsDetails() {
                       sx={{
                         width: "40%",
                         color: "#294d77",
-                        fontSize: 18,
+                        fontSize: { xs: "14px", sm: "16px", md: "18px" },
                         lineHeight: 1.5,
-                        py: 3,
+                        py: { xs: 2, sm: 2.5, md: 3 },
+                        px: { xs: 2, sm: 2.5, md: 3 },
                         verticalAlign: "middle",
+                        whiteSpace: "normal",
+                        wordBreak: "break-word",
                       }}
                     >
                       {row.wati}
@@ -1250,22 +1393,21 @@ export default function ComparisonsDetails() {
           display: "flex",
           justifyContent: "center",
 
-          pt: { xs: 3, sm: 5, md: 7 },
-          px: { xs: 2, sm: 3 },
-          pb: { xs: 2, sm: 3, md: 3 },
+          pt: { xs: 4, sm: 6, md: 8 },
+          px: { xs: 1.5, sm: 3, md: 3 },
+          pb: { xs: 5, sm: 7, md: 10 },
 
           backgroundColor: "#FDFDFF",
 
-          // Layered mesh gradient — indigo, orange, and a hint of pink
           backgroundImage: `
-            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
-            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
-            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
-            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
-          `,
+      radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
+      radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
+      radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+      radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
+    `,
         }}
       >
-        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        {/* Fine noise / texture overlay */}
         <Box
           sx={{
             position: "absolute",
@@ -1276,80 +1418,342 @@ export default function ComparisonsDetails() {
             zIndex: 0,
           }}
         />
-        <Box
+
+        <Container
+          maxWidth="xl"
           sx={{
-            py: { xs: 8, md: 12 },
+            position: "relative",
+            zIndex: 1,
+            width: "100%",
+            px: { xs: 1, sm: 2, md: 3 },
           }}
         >
-          <Container maxWidth="xl">
-            {/* SECTION HEADER */}
+          {/* SECTION HEADER */}
+          <Box
+            sx={{
+              width: "100%",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+
+              // IMPORTANT:
+              // Do not use a large negative margin here.
+              mt: 0,
+            }}
+          >
+            <SectionLabel icon={<AutoAwesome fontSize="small" />}>
+              The Two Platforms
+            </SectionLabel>
+
+            <Typography
+              component="h2"
+              sx={{
+                mt: { xs: 2, sm: 2, md: 2 },
+
+                width: "100%",
+                textAlign: "center",
+
+                fontSize: {
+                  xs: "25px",
+                  sm: "28px",
+                  md: "34px",
+                },
+
+                lineHeight: 1.25,
+                fontWeight: 600,
+                color: COLORS.black,
+
+                // Prevent heading from being clipped
+                overflow: "visible",
+              }}
+            >
+              A Broadcast Tool vs an Outreach Stack
+            </Typography>
+
+            <Typography
+              sx={{
+                mt: { xs: 2, sm: 2.5, md: 3 },
+
+                width: "100%",
+                maxWidth: "850px",
+                mx: "auto",
+
+                textAlign: "center",
+
+                fontSize: {
+                  xs: "15px",
+                  sm: "18px",
+                  md: "20px",
+                },
+
+                lineHeight: 1.6,
+                color: COLORS.lightBlue,
+              }}
+            >
+              AiSensy and JFS overlap on exactly one channel. What happens
+              around that channel is where they part ways.
+            </Typography>
+          </Box>
+
+          {/* PLATFORM CARDS */}
+          <Box
+            sx={{
+              width: "100%",
+              maxWidth: "1100px",
+              mx: "auto",
+
+              mt: { xs: 4, sm: 5, md: 7 },
+
+              display: "grid",
+
+              gridTemplateColumns: {
+                xs: "1fr",
+                md: "repeat(2, minmax(0, 1fr))",
+              },
+
+              gap: {
+                xs: 3,
+                md: 4,
+              },
+
+              alignItems: "stretch",
+            }}
+          >
+            {/* WATI */}
             <Box
               sx={{
                 width: "100%",
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                mt: -15,
+                minWidth: 0,
               }}
             >
-              <SectionLabel icon={<AutoAwesome fontSize="small" />}>
-                The Two Platforms
-              </SectionLabel>
-
-              <Typography
-                component="h2"
-                sx={{
-                  mt: 2,
-                  width: "100%",
-                  textAlign: "center",
-                  fontSize: {
-                    xs: "25px",
-                    sm: "18px",
-                    md: "25px",
-                  },
-                  lineHeight: 1.2,
-                  fontWeight: 600,
-                  color: COLORS.black,
-                }}
+              <PlatformCard
+                subtitle="WhatsApp Inbox & Marketing Platform"
+                title="What Wati does well"
+                bullets={[
+                  "Omnichannel inbox: WhatsApp, Instagram DMs, FB Messenger, web widget",
+                  "No-code chatbot builder plus Astra AI agents",
+                ]}
               >
-                A Broadcast Tool vs an Outreach Stack
-              </Typography>
-
-              <Typography
-                sx={{
-                  mt: 3,
-                  width: "100%",
-                  maxWidth: "850px",
-                  mx: "auto",
-                  textAlign: "center",
-                  fontSize: {
-                    xs: "16px",
-                    sm: "20px",
-                    md: "20px",
-                  },
-                  lineHeight: 1.6,
-                  color: COLORS.lightBlue,
-                }}
-              >
-                AiSensy and JFS overlap on exactly one channel. What happens
-                around that channel is where they part ways.
-              </Typography>
+                Wati turned the WhatsApp Business API into a collaborative team
+                inbox, and it remains strong at exactly that. If a Facebook ad
+                drives people to WhatsApp, Wati gives your agents shared chats,
+                tags, routing, no-code chatbots and broadcast campaigns to
+                handle the incoming conversations.
+              </PlatformCard>
             </Box>
 
-            {/* PLATFORM CARDS */}
+            {/* JFS */}
             <Box
               sx={{
-                width: {
-                  xs: "80%",
-                  sm: "50%",
-                  md: "30%",
-                  lg: "90%",
-                },
-                maxWidth: "1100px",
-                mx: "auto",
-                mt: 7,
+                width: "100%",
+                minWidth: 0,
+              }}
+            >
+              <PlatformCard
+                rapid
+                subtitle="Tri-Channel Outbound Sales Engine"
+                title="What JFS does well"
+                bullets={[
+                  "AI voice agents that dial mobile numbers and converse in English, Hindi, Hinglish and regional languages",
+                  "Email sequences sent from your own authenticated domain",
+                ]}
+              >
+                JFS starts where a lead list starts: a CSV. Upload it, pick a
+                sequence, and the platform works each prospect across Email,
+                WhatsApp and AI voice calls until someone replies — then stops
+                automatically and hands the conversation to a human with the
+                full history attached.
+              </PlatformCard>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
 
+      {/*  */}
+      <Box
+        component="section"
+        sx={{
+          width: "100%",
+          position: "relative",
+          overflowX: "hidden",
+          display: "flex",
+          justifyContent: "center",
+
+          pt: { xs: 5, sm: 7, md: 9 },
+          px: { xs: 1.5, sm: 2, md: 3 },
+          pb: { xs: 6, sm: 8, md: 10 },
+
+          backgroundColor: "#FDFDFF",
+
+          backgroundImage: `
+      radial-gradient(
+        at 15% 20%,
+        rgba(79, 70, 229, 0.16) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 85% 10%,
+        rgba(255, 104, 17, 0.14) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 50% 60%,
+        rgba(236, 72, 153, 0.08) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 90% 80%,
+        rgba(79, 70, 229, 0.10) 0px,
+        transparent 50%
+      )
+    `,
+        }}
+      >
+        {/* Fine noise / texture overlay */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
+        <Container
+          maxWidth="xl"
+          sx={{
+            position: "relative",
+            zIndex: 1,
+            width: "100%",
+            px: { xs: 1, sm: 2, md: 3 },
+          }}
+        >
+          {/* SECTION HEADER */}
+          <Stack
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+
+              mt: 0,
+            }}
+          >
+            <SectionLabel icon={<AutoAwesome fontSize="small" />}>
+              Key Differences
+            </SectionLabel>
+
+            <Typography
+              component="h2"
+              sx={{
+                mt: { xs: 2, sm: 2.5, md: 3 },
+
+                width: "100%",
+                maxWidth: "900px",
+                mx: "auto",
+
+                textAlign: "center",
+
+                color: COLORS.black,
+
+                fontSize: {
+                  xs: "25px",
+                  sm: "30px",
+                  md: "34px",
+                },
+
+                lineHeight: {
+                  xs: 1.3,
+                  sm: 1.25,
+                  md: 1.2,
+                },
+
+                fontWeight: 600,
+
+                overflow: "visible",
+              }}
+            >
+              The Four Differences That <Highlight>Actually Matter</Highlight>
+            </Typography>
+
+            <Typography
+              sx={{
+                mt: { xs: 2, sm: 2.5, md: 3 },
+
+                width: "100%",
+                maxWidth: "750px",
+                mx: "auto",
+
+                textAlign: "center",
+
+                color: COLORS.lightBlue,
+
+                fontSize: {
+                  xs: "15px",
+                  sm: "17px",
+                  md: "18px",
+                },
+
+                lineHeight: {
+                  xs: 1.55,
+                  sm: 1.6,
+                  md: 1.6,
+                },
+              }}
+            >
+              Where the two products genuinely diverge — and what it costs you
+              either way.
+            </Typography>
+          </Stack>
+
+          {/* MAIN CONTENT */}
+          <Box
+            sx={{
+              width: "100%",
+              maxWidth: "1050px",
+              mx: "auto",
+
+              mt: {
+                xs: 4,
+                sm: 5,
+                md: 7,
+              },
+            }}
+          >
+            {/* DIFFERENCE 1 */}
+            <Typography
+              component="h3"
+              sx={{
+                fontSize: {
+                  xs: "18px",
+                  sm: "21px",
+                  md: "22px",
+                },
+
+                fontWeight: 700,
+
+                mb: {
+                  xs: 2,
+                  sm: 2.5,
+                },
+
+                color: COLORS.navy,
+
+                lineHeight: 1.35,
+
+                width: "100%",
+              }}
+            >
+              1. When a prospect ignores WhatsApp, what happens next?
+            </Typography>
+
+            <Box
+              sx={{
+                width: "100%",
                 display: "grid",
 
                 gridTemplateColumns: {
@@ -1358,373 +1762,291 @@ export default function ComparisonsDetails() {
                 },
 
                 gap: {
-                  xs: 3,
-                  md: 4,
+                  xs: 2.5,
+                  sm: 3,
+                  md: 3,
                 },
 
                 alignItems: "stretch",
               }}
             >
-              {/* WATI */}
               <Box
                 sx={{
                   width: "100%",
                   minWidth: 0,
+                  display: "flex",
                 }}
               >
-                <PlatformCard
-                  subtitle="WhatsApp Inbox & Marketing Platform"
-                  title="What Wati does well"
-                  bullets={[
-                    "Omnichannel inbox: WhatsApp, Instagram DMs, FB Messenger, web widget",
-                    "No-code chatbot builder plus Astra AI agents",
-                  ]}
-                >
-                  Wati turned the WhatsApp Business API into a collaborative
-                  team inbox, and it remains strong at exactly that. If a
-                  Facebook ad drives people to WhatsApp, Wati gives your agents
-                  shared chats, tags, routing, no-code chatbots and broadcast
-                  campaigns to handle the incoming conversations.
-                </PlatformCard>
+                <ComparisonBox type="wati">
+                  The journey ends in WhatsApp. You can re-broadcast or
+                  retarget, but a prospect who does not open the chat never
+                  hears from you on another channel.
+                </ComparisonBox>
               </Box>
 
               <Box
                 sx={{
                   width: "100%",
                   minWidth: 0,
+                  display: "flex",
                 }}
               >
-                <PlatformCard
-                  rapid
-                  subtitle="Tri-Channel Outbound Sales Engine"
-                  title="What JFS does well"
-                  bullets={[
-                    "AI voice agents that dial mobile numbers and converse in English, Hindi, Hinglish and regional languages",
-                    "Email sequences sent from your own authenticated domain",
-                  ]}
-                >
-                  JFS starts where a lead list starts: a CSV. Upload it, pick a
-                  sequence, and the platform works each prospect across Email,
-                  WhatsApp and AI voice calls until someone replies — then stops
-                  automatically and hands the conversation to a human with the
-                  full history attached.
-                </PlatformCard>
+                <ComparisonBox type="rapid">
+                  Sequences escalate across channels. A WhatsApp message unread
+                  for a set window can trigger an email, then an AI voice call —
+                  and any reply on any channel halts the entire sequence
+                  instantly.
+                </ComparisonBox>
               </Box>
             </Box>
-          </Container>
-        </Box>
-      </Box>
 
-      {/*  */}
-
-      <Box
-        component="section"
-        sx={{
-          width: "100%",
-          position: "relative",
-          overflow: "hidden",
-          display: "flex",
-          justifyContent: "center",
-
-          pt: { xs: 3, sm: 5, md: 7 },
-          px: { xs: 2, sm: 3 },
-          pb: { xs: 2, sm: 3, md: 3 },
-
-          backgroundColor: "#FDFDFF",
-
-          // Layered mesh gradient — indigo, orange, and a hint of pink
-          backgroundImage: `
-            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
-            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
-            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
-            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
-          `,
-        }}
-      >
-        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
-        <Box
-          sx={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E\")",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-        />
-
-        <Box
-          sx={{
-            py: {
-              xs: 6,
-              md: 9,
-            },
-            // bgcolor: COLORS.background,
-          }}
-        >
-          <Container maxWidth="xl">
-            {/* SECTION HEADER */}
-            <Stack
+            {/* DIFFERENCE 2 */}
+            <Typography
+              component="h3"
               sx={{
+                mt: {
+                  xs: 5,
+                  sm: 6,
+                  md: 6,
+                },
+
+                fontSize: {
+                  xs: "18px",
+                  sm: "21px",
+                  md: "22px",
+                },
+
+                fontWeight: 700,
+
+                mb: {
+                  xs: 2,
+                  sm: 2.5,
+                },
+
+                color: COLORS.navy,
+
+                lineHeight: 1.35,
+
                 width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-                mt: -13,
               }}
             >
-              <SectionLabel icon={<AutoAwesome fontSize="small" />}>
-                Key Differences
-              </SectionLabel>
+              2. Chatbots vs AI that can hold a phone conversation
+            </Typography>
 
-              <Typography
-                component="h2"
-                sx={{
-                  mt: 3,
-                  width: "100%",
-                  textAlign: "center",
-
-                  color: COLORS.black,
-                  fontSize: {
-                    xs: "25px",
-                    sm: "18px",
-                    md: "25px",
-                  },
-                  lineHeight: 1.2,
-                  fontWeight: 600,
-                }}
-              >
-                The Four Differences That <Highlight>Actually Matter</Highlight>
-              </Typography>
-
-              <Typography
-                sx={{
-                  mt: 2,
-                  maxWidth: 750,
-                  mx: "auto",
-                  textAlign: "center",
-                  color: COLORS.lightBlue,
-                  fontSize: {
-                    xs: 15,
-                    sm: 16,
-                    md: 18,
-                  },
-                  lineHeight: 1.5,
-                }}
-              >
-                Where the two products genuinely diverge — and what it costs you
-                either way.
-              </Typography>
-            </Stack>
-
-            {/* MAIN CONTENT */}
             <Box
               sx={{
-                width: {
-                  xs: "95%",
-                  sm: "90%",
-                  md: "85%",
-                  lg: "80%",
+                width: "100%",
+                display: "grid",
+
+                gridTemplateColumns: {
+                  xs: "1fr",
+                  md: "repeat(2, minmax(0, 1fr))",
                 },
-                maxWidth: "1050px",
-                mx: "auto",
-                mt: 6,
+
+                gap: {
+                  xs: 2.5,
+                  sm: 3,
+                  md: 3,
+                },
+
+                alignItems: "stretch",
               }}
             >
-              {/* DIFFERENCE 1 */}
-              <Typography
-                component="h3"
-                sx={{
-                  fontSize: {
-                    xs: 18,
-                    sm: 21,
-                    md: 22,
-                  },
-                  fontWeight: 700,
-                  mb: 2.5,
-                  color: COLORS.navy,
-                  lineHeight: 1.35,
-                }}
-              >
-                1. When a prospect ignores WhatsApp, what happens next?
-              </Typography>
-
               <Box
                 sx={{
-                  display: "grid",
-                  gridTemplateColumns: {
-                    xs: "1fr",
-                    md: "repeat(2, minmax(0, 1fr))",
-                  },
-                  gap: 2.5,
-                  alignItems: "stretch",
+                  width: "100%",
+                  minWidth: 0,
+                  display: "flex",
                 }}
               >
-                <Box sx={{ minWidth: 0 }}>
-                  <ComparisonBox type="wati">
-                    The journey ends in WhatsApp. You can re-broadcast or
-                    retarget, but a prospect who does not open the chat never
-                    hears from you on another channel.
-                  </ComparisonBox>
-                </Box>
-
-                <Box sx={{ minWidth: 0 }}>
-                  <ComparisonBox type="rapid">
-                    Sequences escalate across channels. A WhatsApp message
-                    unread for a set window can trigger an email, then an AI
-                    voice call — and any reply on any channel halts the entire
-                    sequence instantly.
-                  </ComparisonBox>
-                </Box>
+                <ComparisonBox type="wati">
+                  Flow-builder chatbots and Astra AI agents answer questions in
+                  chat. Useful for "track my order" — but text bots rarely
+                  create sales intent, and AI co-pilot credits are metered.
+                </ComparisonBox>
               </Box>
 
-              {/* DIFFERENCE 2 */}
-              <Typography
-                component="h3"
-                sx={{
-                  mt: 6,
-                  fontSize: {
-                    xs: 18,
-                    sm: 21,
-                    md: 22,
-                  },
-                  fontWeight: 700,
-                  mb: 2.5,
-                  color: COLORS.navy,
-                  lineHeight: 1.35,
-                }}
-              >
-                2. Chatbots vs AI that can hold a phone conversation
-              </Typography>
-
               <Box
                 sx={{
-                  display: "grid",
-                  gridTemplateColumns: {
-                    xs: "1fr",
-                    md: "repeat(2, minmax(0, 1fr))",
-                  },
-                  gap: 2.5,
-                  alignItems: "stretch",
+                  width: "100%",
+                  minWidth: 0,
+                  display: "flex",
                 }}
               >
-                <Box sx={{ minWidth: 0 }}>
-                  <ComparisonBox type="wati">
-                    Flow-builder chatbots and Astra AI agents answer questions
-                    in chat. Useful for "track my order" — but text bots rarely
-                    create sales intent, and AI co-pilot credits are metered.
-                  </ComparisonBox>
-                </Box>
-
-                <Box sx={{ minWidth: 0 }}>
-                  <ComparisonBox type="rapid">
-                    JFS has both layers — an AI chatbot handles inbound WhatsApp
-                    queries, and AI voice agents make real outbound calls:
-                    greeting in Hinglish, handling objections, pausing when
-                    interrupted, qualifying budget and intent, and writing the
-                    transcript to the lead timeline.
-                  </ComparisonBox>
-                </Box>
-              </Box>
-
-              {/* DIFFERENCE 3 */}
-              <Typography
-                component="h3"
-                sx={{
-                  mt: 6,
-                  fontSize: {
-                    xs: 18,
-                    sm: 21,
-                    md: 22,
-                  },
-                  fontWeight: 700,
-                  mb: 2.5,
-                  color: COLORS.navy,
-                  lineHeight: 1.35,
-                }}
-              >
-                3. How the bill grows as your team grows
-              </Typography>
-
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: {
-                    xs: "1fr",
-                    md: "repeat(2, minmax(0, 1fr))",
-                  },
-                  gap: 2.5,
-                  alignItems: "stretch",
-                }}
-              >
-                <Box sx={{ minWidth: 0 }}>
-                  <ComparisonBox type="wati">
-                    Subscription + per-user fees after included seats +
-                    rate-card message charges + add-ons for automation triggers
-                    and AI credits.
-                  </ComparisonBox>
-                </Box>
-
-                <Box sx={{ minWidth: 0 }}>
-                  <ComparisonBox type="rapid">
-                    One predictable platform subscription with flat pricing and
-                    no per-user fees. Add your sales team without watching the
-                    software bill climb with every new seat.
-                  </ComparisonBox>
-                </Box>
-              </Box>
-
-              {/* DIFFERENCE 4 */}
-              <Typography
-                component="h3"
-                sx={{
-                  mt: 6,
-                  fontSize: {
-                    xs: 18,
-                    sm: 21,
-                    md: 22,
-                  },
-                  fontWeight: 700,
-                  mb: 2.5,
-                  color: COLORS.navy,
-                  lineHeight: 1.35,
-                }}
-              >
-                4. COD verification: a button tap vs a verbal yes
-              </Typography>
-
-              <Box
-                sx={{
-                  display: "grid",
-                  gridTemplateColumns: {
-                    xs: "1fr",
-                    md: "repeat(2, minmax(0, 1fr))",
-                  },
-                  gap: 2.5,
-                  alignItems: "stretch",
-                }}
-              >
-                <Box sx={{ minWidth: 0 }}>
-                  <ComparisonBox type="wati">
-                    Sends a WhatsApp confirmation template after a
-                    Cash-on-Delivery order. Many buyers ignore it, and some tap
-                    "Confirm" with no intention of accepting delivery.
-                  </ComparisonBox>
-                </Box>
-
-                <Box sx={{ minWidth: 0 }}>
-                  <ComparisonBox type="rapid">
-                    Calls the buyer within moments of the order — "Namaste,
-                    aapne ₹2,000 ka order place kiya hai, kya hum ise dispatch
-                    kar dein?" A verbal confirmation in the buyer's own language
-                    is a far stronger intent signal.
-                  </ComparisonBox>
-                </Box>
+                <ComparisonBox type="rapid">
+                  JFS has both layers — an AI chatbot handles inbound WhatsApp
+                  queries, and AI voice agents make real outbound calls:
+                  greeting in Hinglish, handling objections, pausing when
+                  interrupted, qualifying budget and intent, and writing the
+                  transcript to the lead timeline.
+                </ComparisonBox>
               </Box>
             </Box>
-          </Container>
-        </Box>
+
+            {/* DIFFERENCE 3 */}
+            <Typography
+              component="h3"
+              sx={{
+                mt: {
+                  xs: 5,
+                  sm: 6,
+                  md: 6,
+                },
+
+                fontSize: {
+                  xs: "18px",
+                  sm: "21px",
+                  md: "22px",
+                },
+
+                fontWeight: 700,
+
+                mb: {
+                  xs: 2,
+                  sm: 2.5,
+                },
+
+                color: COLORS.navy,
+
+                lineHeight: 1.35,
+
+                width: "100%",
+              }}
+            >
+              3. How the bill grows as your team grows
+            </Typography>
+
+            <Box
+              sx={{
+                width: "100%",
+                display: "grid",
+
+                gridTemplateColumns: {
+                  xs: "1fr",
+                  md: "repeat(2, minmax(0, 1fr))",
+                },
+
+                gap: {
+                  xs: 2.5,
+                  sm: 3,
+                  md: 3,
+                },
+
+                alignItems: "stretch",
+              }}
+            >
+              <Box
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                  display: "flex",
+                }}
+              >
+                <ComparisonBox type="wati">
+                  Subscription + per-user fees after included seats + rate-card
+                  message charges + add-ons for automation triggers and AI
+                  credits.
+                </ComparisonBox>
+              </Box>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                  display: "flex",
+                }}
+              >
+                <ComparisonBox type="rapid">
+                  One predictable platform subscription with flat pricing and no
+                  per-user fees. Add your sales team without watching the
+                  software bill climb with every new seat.
+                </ComparisonBox>
+              </Box>
+            </Box>
+
+            {/* DIFFERENCE 4 */}
+            <Typography
+              component="h3"
+              sx={{
+                mt: {
+                  xs: 5,
+                  sm: 6,
+                  md: 6,
+                },
+
+                fontSize: {
+                  xs: "18px",
+                  sm: "21px",
+                  md: "22px",
+                },
+
+                fontWeight: 700,
+
+                mb: {
+                  xs: 2,
+                  sm: 2.5,
+                },
+
+                color: COLORS.navy,
+
+                lineHeight: 1.35,
+
+                width: "100%",
+              }}
+            >
+              4. COD verification: a button tap vs a verbal yes
+            </Typography>
+
+            <Box
+              sx={{
+                width: "100%",
+                display: "grid",
+
+                gridTemplateColumns: {
+                  xs: "1fr",
+                  md: "repeat(2, minmax(0, 1fr))",
+                },
+
+                gap: {
+                  xs: 2.5,
+                  sm: 3,
+                  md: 3,
+                },
+
+                alignItems: "stretch",
+              }}
+            >
+              <Box
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                  display: "flex",
+                }}
+              >
+                <ComparisonBox type="wati">
+                  Sends a WhatsApp confirmation template after a
+                  Cash-on-Delivery order. Many buyers ignore it, and some tap
+                  "Confirm" with no intention of accepting delivery.
+                </ComparisonBox>
+              </Box>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                  display: "flex",
+                }}
+              >
+                <ComparisonBox type="rapid">
+                  Calls the buyer within moments of the order — "Namaste, aapne
+                  ₹2,000 ka order place kiya hai, kya hum ise dispatch kar
+                  dein?" A verbal confirmation in the buyer's own language is a
+                  far stronger intent signal.
+                </ComparisonBox>
+              </Box>
+            </Box>
+          </Box>
+        </Container>
       </Box>
 
       <Box
@@ -1732,26 +2054,41 @@ export default function ComparisonsDetails() {
         sx={{
           width: "100%",
           position: "relative",
-          overflow: "hidden",
+          overflowX: "hidden",
           display: "flex",
           justifyContent: "center",
 
-          pt: { xs: 3, sm: 5, md: 7 },
-          px: { xs: 2, sm: 3 },
-          pb: { xs: 2, sm: 3, md: 3 },
+          pt: { xs: 5, sm: 7, md: 9 },
+          px: { xs: 1.5, sm: 2, md: 3 },
+          pb: { xs: 6, sm: 8, md: 10 },
 
           backgroundColor: "#FDFDFF",
 
-          // Layered mesh gradient — indigo, orange, and a hint of pink
           backgroundImage: `
-            radial-gradient(at 15% 20%, rgba(79, 70, 229, 0.16) 0px, transparent 50%),
-            radial-gradient(at 85% 10%, rgba(255, 104, 17, 0.14) 0px, transparent 50%),
-            radial-gradient(at 50% 60%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
-            radial-gradient(at 90% 80%, rgba(79, 70, 229, 0.10) 0px, transparent 50%)
-          `,
+      radial-gradient(
+        at 15% 20%,
+        rgba(79, 70, 229, 0.16) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 85% 10%,
+        rgba(255, 104, 17, 0.14) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 50% 60%,
+        rgba(236, 72, 153, 0.08) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 90% 80%,
+        rgba(79, 70, 229, 0.10) 0px,
+        transparent 50%
+      )
+    `,
         }}
       >
-        {/* Fine noise/texture overlay — keeps the mesh from looking too "smooth/plasticky" */}
+        {/* Fine noise / texture overlay */}
         <Box
           sx={{
             position: "absolute",
@@ -1762,16 +2099,31 @@ export default function ComparisonsDetails() {
             zIndex: 0,
           }}
         />
+
         <Box
           id="pricing"
           sx={{
+            width: "100%",
+            position: "relative",
+            zIndex: 1,
             py: {
-              xs: 7,
-              md: 10,
+              xs: 0,
+              sm: 1,
+              md: 2,
             },
           }}
         >
-          <Container maxWidth="xl">
+          <Container
+            maxWidth="xl"
+            sx={{
+              width: "100%",
+              px: {
+                xs: 1,
+                sm: 2,
+                md: 3,
+              },
+            }}
+          >
             {/* ================= HEADER ================= */}
             <Box
               sx={{
@@ -1789,7 +2141,10 @@ export default function ComparisonsDetails() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  mt: -13,
+
+                  // IMPORTANT:
+                  // Do not use negative margin here.
+                  mt: 0,
                 }}
               >
                 <SectionLabel icon={<Paid sx={{ fontSize: 15 }} />}>
@@ -1801,17 +2156,34 @@ export default function ComparisonsDetails() {
               <Typography
                 component="h2"
                 sx={{
-                  mt: 3,
-                  width: "100%",
-                  textAlign: "center",
-                  fontSize: {
-                    xs: 20,
-                    sm: 30,
-                    md: 30,
+                  mt: {
+                    xs: 2,
+                    sm: 2.5,
+                    md: 3,
                   },
-                  lineHeight: 1.2,
-                  fontWeight: 500,
+
+                  width: "100%",
+                  maxWidth: "900px",
+                  mx: "auto",
+
+                  textAlign: "center",
+
+                  fontSize: {
+                    xs: "25px",
+                    sm: "30px",
+                    md: "34px",
+                  },
+
+                  lineHeight: {
+                    xs: 1.3,
+                    sm: 1.25,
+                    md: 1.2,
+                  },
+
+                  fontWeight: 600,
                   color: COLORS.black,
+
+                  overflow: "visible",
                 }}
               >
                 JFS vs Wati <Highlight>Pricing</Highlight>
@@ -1820,18 +2192,31 @@ export default function ComparisonsDetails() {
               {/* DESCRIPTION */}
               <Typography
                 sx={{
-                  mt: 2,
+                  mt: {
+                    xs: 2,
+                    sm: 2.5,
+                    md: 3,
+                  },
+
                   width: "100%",
                   maxWidth: "780px",
                   mx: "auto",
+
                   textAlign: "center",
+
                   color: COLORS.lightBlue,
+
                   fontSize: {
-                    xs: 15,
-                    sm: 17,
-                    md: 19,
+                    xs: "15px",
+                    sm: "17px",
+                    md: "19px",
                   },
-                  lineHeight: 1.5,
+
+                  lineHeight: {
+                    xs: 1.55,
+                    sm: 1.6,
+                    md: 1.6,
+                  },
                 }}
               >
                 Indian pricing from both official pricing pages. Both platforms
@@ -1842,15 +2227,15 @@ export default function ComparisonsDetails() {
             {/* ================= PRICING BOXES ================= */}
             <Box
               sx={{
-                width: {
-                  xs: "50%",
-                  sm: "50%",
-                  md: "50%",
-                  lg: "100%",
-                },
+                width: "100%",
                 maxWidth: "1100px",
                 mx: "auto",
-                mt: 6,
+
+                mt: {
+                  xs: 4,
+                  sm: 5,
+                  md: 7,
+                },
 
                 display: "grid",
 
@@ -1861,6 +2246,7 @@ export default function ComparisonsDetails() {
 
                 gap: {
                   xs: 3,
+                  sm: 3.5,
                   md: 4,
                 },
 
@@ -1873,38 +2259,66 @@ export default function ComparisonsDetails() {
                 sx={{
                   width: "100%",
                   minWidth: 0,
+
                   p: {
                     xs: 2.5,
-                    md: 3,
+                    sm: 3,
+                    md: 3.5,
                   },
-                  borderRadius: "20px",
+
+                  borderRadius: {
+                    xs: "16px",
+                    sm: "18px",
+                    md: "20px",
+                  },
+
                   border: `1px solid ${COLORS.orange}`,
+
                   boxSizing: "border-box",
+
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
                 {/* JFS HEADER */}
                 <Box
                   sx={{
+                    width: "100%",
                     display: "flex",
+
                     flexDirection: {
                       xs: "column",
                       sm: "row",
                     },
+
                     justifyContent: "space-between",
+
                     alignItems: {
                       xs: "flex-start",
                       sm: "center",
                     },
-                    gap: 1.5,
-                    mb: 2,
+
+                    gap: {
+                      xs: 1.5,
+                      sm: 2,
+                    },
+
+                    mb: {
+                      xs: 2,
+                      sm: 2.5,
+                    },
                   }}
                 >
                   <Typography
                     sx={{
                       fontSize: {
-                        xs: 10,
-                        md: 22,
+                        xs: "20px",
+                        sm: "21px",
+                        md: "22px",
                       },
+
+                      lineHeight: 1.3,
+
                       fontWeight: 700,
                       color: COLORS.purple,
                     }}
@@ -1915,13 +2329,26 @@ export default function ComparisonsDetails() {
                   <Chip
                     label="FLAT PRICING • NO PER-USER FEES"
                     sx={{
+                      maxWidth: "100%",
+
                       color: COLORS.orange,
                       bgcolor: COLORS.peachLight,
+
                       fontWeight: 600,
-                      fontSize: 9,
+
+                      fontSize: {
+                        xs: "8px",
+                        sm: "9px",
+                      },
+
                       height: 25,
+
                       "& .MuiChip-label": {
-                        px: 1,
+                        px: {
+                          xs: 0.8,
+                          sm: 1,
+                        },
+                        whiteSpace: "normal",
                       },
                     }}
                   />
@@ -1954,38 +2381,66 @@ export default function ComparisonsDetails() {
                 sx={{
                   width: "100%",
                   minWidth: 0,
+
                   p: {
                     xs: 2.5,
-                    md: 3,
+                    sm: 3,
+                    md: 3.5,
                   },
-                  borderRadius: "20px",
+
+                  borderRadius: {
+                    xs: "16px",
+                    sm: "18px",
+                    md: "20px",
+                  },
+
                   border: `1px solid ${COLORS.border}`,
+
                   boxSizing: "border-box",
+
+                  display: "flex",
+                  flexDirection: "column",
                 }}
               >
                 {/* WATI HEADER */}
                 <Box
                   sx={{
+                    width: "100%",
                     display: "flex",
+
                     flexDirection: {
                       xs: "column",
                       sm: "row",
                     },
+
                     justifyContent: "space-between",
+
                     alignItems: {
                       xs: "flex-start",
                       sm: "center",
                     },
-                    gap: 1.5,
-                    mb: 2,
+
+                    gap: {
+                      xs: 1.5,
+                      sm: 2,
+                    },
+
+                    mb: {
+                      xs: 2,
+                      sm: 2.5,
+                    },
                   }}
                 >
                   <Typography
                     sx={{
                       fontSize: {
-                        xs: 20,
-                        md: 23,
+                        xs: "20px",
+                        sm: "21px",
+                        md: "23px",
                       },
+
+                      lineHeight: 1.3,
+
                       fontWeight: 700,
                       color: COLORS.orange,
                     }}
@@ -1996,13 +2451,27 @@ export default function ComparisonsDetails() {
                   <Chip
                     label="PER-USER FEES APPLY"
                     sx={{
+                      maxWidth: "100%",
+
                       color: COLORS.purple,
                       bgcolor: "#fbf7ff",
+
                       fontWeight: 600,
-                      fontSize: 9,
+
+                      fontSize: {
+                        xs: "8px",
+                        sm: "9px",
+                      },
+
                       height: 25,
+
                       "& .MuiChip-label": {
-                        px: 1,
+                        px: {
+                          xs: 0.8,
+                          sm: 1,
+                        },
+
+                        whiteSpace: "normal",
                       },
                     }}
                   />
@@ -2251,7 +2720,6 @@ export default function ComparisonsDetails() {
           </Container>
         </Box>
       </Box>
-
       <Box
         component="section"
         sx={{
@@ -2735,7 +3203,6 @@ export default function ComparisonsDetails() {
           </Box>
         </Container>
       </Box>
-
       <FAQHome />
     </>
   );
