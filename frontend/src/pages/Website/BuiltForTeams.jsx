@@ -551,7 +551,7 @@
 import React from "react";
 import { Box, Typography, Paper } from "@mui/material";
 
-import LogoIcon from "../../assets/images/trudialer1.svg";
+import LogoIcon from "../../assets/images/TrudialerFavicon.png";
 
 /* =========================================================
    PRIVATE SECTOR SERVICES
@@ -959,8 +959,8 @@ const BuiltForTeams = () => {
                 src={LogoIcon}
                 alt="TruDialer"
                 sx={{
-                  width: 150,
-                  height: 150,
+                  width: 100,
+                  height: 100,
 
                   objectFit: "contain",
 

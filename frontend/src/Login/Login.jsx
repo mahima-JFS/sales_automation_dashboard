@@ -17,7 +17,7 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
 import { Link as RouterLink } from "react-router-dom";
-import LogoBlue from "../assets/images/trudialer1.svg";
+import LogoBlue from "../assets/images/Trudialer-orangeblue.png";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
