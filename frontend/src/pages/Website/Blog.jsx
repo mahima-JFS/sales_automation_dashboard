@@ -39,66 +39,66 @@ export const blogData = [
   {
   id: 1,
   date: "2026-07-06",
-  image:
-    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
-
+  image: "https://vibeus-cdn.vibe.pub/blog/vhXh4zssjveGXBU2w1r0okP5dAQbyly3.png",
   title:
     "From Missed Leads to More Sales: How AI Is Building Smarter Customer Journeys",
-     description:
+  description:
     "The best real estate CRM features for high-volume developers include native Meta ad...",
- 
 },
 
   {
-    id: 2,
-    date: "2026-07-02",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
-    title: "How AI-Powered Sales Automation Is Transforming Lead Engagement and Customer Conversion",
-    description:
-      "The best real estate CRM features for high-volume developers include native Meta ad...",
-  },
+  id: 2,
+  date: "2026-07-02",
+  image:
+    "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80",
+  title:
+    "How AI-Powered Sales Automation Is Transforming Lead Engagement and Customer Conversion",
+  description:
+    "The best real estate CRM features for high-volume developers include native Meta ad...",
+},
+
+ {
+  id: 3,
+  date: "2026-07-01",
+  image:
+    "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80",
+  title:
+    "How WhatsApp AI Automation Can Transform Customer Engagement",
+  description:
+    "Higher education lead management requires separating serious applicants from junk...",
+},
 
   {
-    id: 3,
-    date: "2026-07-01",
-    image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
-    title: "How WhatsApp AI Automation Can Transform Customer Engagement",
-    description:
-      "Higher education lead management requires separating serious applicants from junk...",
-  },
+  id: 4,
+  date: "2026-06-30",
+  image:
+    "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
+  title:
+    "AI Voice Agents: The Future of 24/7 Customer Communication",
+  description:
+    "When comparing WhatsApp automation vs email marketing for sales, the answer is not...",
+},
+ {
+  id: 5,
+  date: "2026-06-27",
+  image:
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+  title:
+    "How AI Is Making B2B Lead Qualification Faster and Smarter",
+  description:
+    "To accurately track sales campaign ROI across WhatsApp and email, businesses...",
+},
 
   {
-    id: 4,
-    date: "2026-06-30",
-    image:
-      "https://images.unsplash.com/photo-1611944212129-29977ae1398c?auto=format&fit=crop&w=1200&q=80",
-    title: "AI Voice Agents: The Future of 24/7 Customer Communication",
-    description:
-      "When comparing WhatsApp automation vs email marketing for sales, the answer is not...",
-  },
-
-  {
-    id: 5,
-    date: "2026-06-27",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-    title: "How AI Is Making B2B Lead Qualification Faster and Smarter",
-    description:
-      "To accurately track sales campaign ROI across WhatsApp and email, businesses...",
-  },
-
-  {
-    id: 6,
-    date: "2026-06-26",
-    image:
-      "https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=1200&q=80",
-    title: "How AI + CRM Integration Can Improve Your Sales Process",
-    description:
-      "A multi-channel sales sequence is an automated outreach strategy that engages...",
-  },
-
+  id: 6,
+  date: "2026-06-26",
+  image:
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+  title:
+    "How AI + CRM Integration Can Improve Your Sales Process",
+  description:
+    "A multi-channel sales sequence is an automated outreach strategy that engages...",
+},
   // {
   //   id: 7,
   //   date: "2026-06-26",
