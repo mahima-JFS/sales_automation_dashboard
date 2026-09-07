@@ -19,7 +19,7 @@ const Chatbot = ({ open, onClose }) => {
     {
       id: 1,
       sender: 'bot',
-      text: 'Hi I am Max! How can I help you today?',
+      text: 'Hi I am Nova! How can I help you today?',
     },
   ]);
 
@@ -164,8 +164,8 @@ const Chatbot = ({ open, onClose }) => {
         },
 
         height: {
-          xs: 500,
-          sm: 550,
+          xs: 400,
+          sm: 450,
         },
 
         backgroundColor: '#ffffff',
@@ -216,7 +216,7 @@ const Chatbot = ({ open, onClose }) => {
             fontWeight: 700,
           }}
         >
-          Max
+          Nova
         </Typography>
 
 
@@ -285,7 +285,7 @@ onClick={onClose}
 
             <Box
               sx={{
-                maxWidth: '82%',
+                NovaWidth: '80%',
 
                 px: 1.8,
 
@@ -415,7 +415,7 @@ onClick={onClose}
 
           multiline
 
-          maxRows={3}
+          NovaRows={3}
 
           sx={{
             '& .MuiOutlinedInput-root': {
