@@ -34,6 +34,25 @@ const Footer = ({ onChatOpen }) => {
     });
   };
 
+  // Open WhatsApp
+ const openWhatsApp = () => {
+  window.open('/whatsapp', '_blank');
+
+  if (!number) {
+    console.error('VITE_WHATSAPP_NUMBER is not configured.');
+    return;
+  }
+
+  window.open(
+    `https://wa.me/${number}`,
+    '_blank',
+    'noopener,noreferrer'
+  );
+};
+
+  // ...rest of your Footer component
+
+
 
   return (
     <Box
@@ -532,15 +551,26 @@ const Footer = ({ onChatOpen }) => {
           WHATSAPP FLOATING BUTTON
       ================================================= */}
       <Box
-        component="a"
-        href="https://wa.me/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp"
+        // component="a"
+        // href="https://wa.me/8788524747"
+        // target="_blank"
+        // rel="noopener noreferrer"
+        // aria-label="WhatsApp"
+
+         role="button"
+  tabIndex={0}
+  aria-label="WhatsApp"
+  onClick={openWhatsApp}
+  onKeyDown={(event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openWhatsApp();
+    }
+  }}
         sx={{
           position: 'fixed',
 
-          left: {
+          right: {
             xs: '12px',
             sm: '18px',
             md: '22px',
@@ -611,7 +641,7 @@ const Footer = ({ onChatOpen }) => {
       {/* =================================================
           AI CHAT FLOATING BUTTON
       ================================================= */}
-      <Box
+      {/* <Box
         role="button"
         tabIndex={0}
         aria-label="Open chat"
@@ -708,13 +738,13 @@ const Footer = ({ onChatOpen }) => {
           }}
         />
 
-      </Box>
+      </Box> */}
 
 
       {/* =================================================
           SCROLL TO TOP BUTTON
       ================================================= */}
-      <Box
+      {/* <Box
         role="button"
         tabIndex={0}
         aria-label="Scroll to top"
@@ -741,9 +771,9 @@ const Footer = ({ onChatOpen }) => {
           },
 
           bottom: {
-            xs: '75px',
-            sm: '85px',
-            md: '95px',
+            xs: '65px',
+            sm: '72px',
+            md: '20px',
           },
 
           width: {
@@ -794,7 +824,7 @@ const Footer = ({ onChatOpen }) => {
           }}
         />
 
-      </Box>
+      </Box> */}
 
     </Box>
   );
