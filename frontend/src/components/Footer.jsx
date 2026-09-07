@@ -19,7 +19,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 import { Link as RouterLink } from "react-router-dom";
 
-import LogoBlue from "../assets/images/trudialer1.svg";
+import LogoBlue from "../assets/images/Trudialer-orangeblue.png";
 
 const Footer = () => {
   const scrollToTop = () => {
