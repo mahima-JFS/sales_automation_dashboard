@@ -39,7 +39,7 @@ const FAQHome = () => {
 
   const faqData = [
     {
-      question: " What exactly does TrueDialer do? ",
+      question: " What exactly does TruDialer do? ",
       answer:
 "AI-powered lead generation, qualification, follow-ups, voice calls, WhatsApp and sales automation."  
   },
