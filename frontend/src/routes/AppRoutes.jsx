@@ -12,6 +12,8 @@ import FeatureAIAgent from "../pages/Website/FeatureAIAgent";
 import WhatappAutomation from "../pages/Website/WhatappAutomation";
 import EmailOutreach from "../pages/Website/EmailOutreach";
 import BlogDetails from "../pages/Website/BlogDetails";
+import WhatsAppRedirect from '../components/WhatsappRedirect';
+
 
 // Auth
 import Login from "../Login/Login";
@@ -40,7 +42,7 @@ const AppRoutes = () => {
       <Route path="/features" element={<Features />} />
       <Route path="/comparisons" element={<Comparisons />} />
       <Route path="/book-a-demo" element={<BookDemo />} />
-
+<Route path="/whatsapp" element={<WhatsAppRedirect />} />
       <Route path="/feature/ai-calling-agent" element={<FeatureAIAgent />} />
 
       <Route
