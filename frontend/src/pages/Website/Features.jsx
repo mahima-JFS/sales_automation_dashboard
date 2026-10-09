@@ -21,6 +21,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import CheckIcon from "@mui/icons-material/Check";
 import FAQHome from "./FAQHome";
 import ContactForm from "./ContactForm";
+import { Helmet } from "react-helmet-async";
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
@@ -189,10 +190,6 @@ const SolutionItem = ({ text }) => {
 };
 
 const Features = () => {
-  // =====================================================
-  // FEATURE DATA
-  // =====================================================
-
   const featureData = [
     {
       id: "voice",
@@ -255,10 +252,6 @@ const Features = () => {
     })),
   );
 
-  // =====================================================
-  // ACTIVE SLIDE
-  // =====================================================
-
   const [activeSlide, setActiveSlide] = useState(0);
 
   const currentSlide = allSlides[activeSlide];
@@ -268,10 +261,6 @@ const Features = () => {
   const activeImage = currentSlide.imageIndex;
 
   const currentFeature = featureData[activeFeature];
-
-  // =====================================================
-  // AUTOMATIC SLIDER
-  // =====================================================
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -285,6 +274,42 @@ const Features = () => {
 
   return (
     <>
+      {/* =====================================================
+          SEO META TAGS
+      ===================================================== */}
+      <Helmet>
+        <title>
+          AI Voice Calling Features | AI Calling Software | TruDialer
+        </title>
+        <meta
+          name="description"
+          content="Explore TruDialer's AI voice calling features for automated calls, lead follow-ups, customer support, and smarter business conversations at scale today."
+        />
+        <link rel="canonical" href="https://trudialer.com/features" />
+
+        {/* Open Graph */}
+        <meta
+          property="og:title"
+          content="AI Voice Calling Features | AI Calling Software | TruDialer"
+        />
+        <meta
+          property="og:description"
+          content="Explore TruDialer's AI voice calling features for automated calls, lead follow-ups, customer support, and smarter business conversations at scale today."
+        />
+        <meta property="og:url" content="https://trudialer.com/features" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="AI Voice Calling Features | AI Calling Software | TruDialer"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore TruDialer's AI voice calling features for automated calls, lead follow-ups, customer support, and smarter business conversations at scale today."
+        />
+      </Helmet>
       {/* =====================================================
           HERO SECTION
       ===================================================== */}

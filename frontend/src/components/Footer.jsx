@@ -794,10 +794,14 @@ import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import { Link as RouterLink } from "react-router-dom";
 
 import LogoBlue from "../assets/images/Trudialer-orangeblue.png";
+
+const number = "918788524747";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -809,8 +813,6 @@ const Footer = () => {
 
   //   // Open WhatsApp
   const openWhatsApp = () => {
-    window.open("/whatsapp", "_blank");
-
     if (!number) {
       console.error("VITE_WHATSAPP_NUMBER is not configured.");
       return;
@@ -1080,19 +1082,31 @@ const Footer = () => {
                 >
                   <SocialButton
                     icon={<FacebookIcon />}
-                    href="#"
+                    href="https://www.facebook.com/profile.php?id=61593989622197"
                     label="Facebook"
                   />
 
                   <SocialButton
                     icon={<InstagramIcon />}
-                    href="#"
+                    href="https://www.instagram.com/trudialer/"
                     label="Instagram"
                   />
 
                   <SocialButton
+                    icon={<YouTubeIcon />}
+                    href="https://www.youtube.com/@TruDialer"
+                    label="YouTube"
+                  />
+
+                  <SocialButton
+                    icon={<LinkedInIcon />}
+                    href="https://www.linkedin.com/company/trudialer/"
+                    label="LinkedIn"
+                  />
+
+                  <SocialButton
                     icon={<AlternateEmailIcon />}
-                    href="mailto:contact@jfstechnologies.com"
+                    href="mailto:info@jfstechnologies.com"
                     label="Email"
                   />
                 </Box>
@@ -1166,7 +1180,7 @@ const Footer = () => {
                   </Typography>
 
                   <Link
-                    href="mailto:contact@jfstechnologies.com"
+                    href="mailto:info@jfstechnologies.com"
                     underline="none"
                     sx={{
                       display: "block",
@@ -1222,7 +1236,7 @@ const Footer = () => {
                       },
                     }}
                   >
-                    +91 98765 43210
+                    +91 8788524747
                   </Link>
                 </Box>
 
@@ -1252,34 +1266,15 @@ const Footer = () => {
                       maxWidth: 330,
                     }}
                   >
-                    Office No: 423,
+                    Office No: 710,
                     <br />
-                    Sterling Center,
+                    7th Floor, DNK SQUARE
                     <br />
-                    MG Road, Camp,
+                    Airport Road, Viman Nagar,
                     <br />
-                    Pune, Maharashtra 411001
+                    Pune, Maharashtra 411014
                   </Typography>
                 </Box>
-
-                {/* SOCIAL ICONS */}
-                {/* <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 0.5,
-                    mt: 0.5,
-                  }}
-                >
-                  <SocialButton icon={<FacebookIcon />} href="#" />
-
-                  <SocialButton icon={<InstagramIcon />} href="#" />
-
-                  <SocialButton
-                    icon={<AlternateEmailIcon />}
-                    href="mailto:contact@jfstechnologies.com"
-                  />
-                </Box> */}
               </FooterColumn>
             </Grid>
           </Grid>
@@ -1729,15 +1724,13 @@ const contactLinkStyle = {
    SOCIAL BUTTON
 ========================================================= */
 
-/* =========================================================
-   SOCIAL BUTTON
-========================================================= */
-
 const SocialButton = ({ icon, href, label }) => {
   const iconColors = {
     Facebook: "#1877F2",
     Instagram: "#E4405F",
     Email: "#EA4335",
+    YouTube: "#ca1302",
+    LinkedIn: "#0053bf",
   };
 
   return (
